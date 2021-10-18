@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+  section .news-input {
+    width: 50%;
+  }
+}
