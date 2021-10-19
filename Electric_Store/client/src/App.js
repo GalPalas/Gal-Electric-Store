@@ -1,14 +1,19 @@
 import Navbar from "components/navbar";
-import Carousel from "components/Carousel/carousel";
-import Newsletter from "components/Newsletter/newsletter";
+import HomeScreen from "components/pages/homeScreen";
+import ProductScreen from "components/pages/productScreen";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Navbar />
-      <Carousel />
-      <Newsletter />
-    </div>
+      <div className="App">
+        <Switch>
+          <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route path="/" component={HomeScreen}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

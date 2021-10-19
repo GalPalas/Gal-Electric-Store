@@ -2,13 +2,18 @@ const data = {
   products: [
     {
       _id: "1",
-      name: "Nike Slim Shirt",
+      name: "BOSCH 495 liter white top freezer",
+      model: "KDN65VW2PL",
+      originalPrice: "1135",
+      currentPrice: "930",
+      brandIcon: "/images/BOSCH_290.png",
       category: "Shirts",
-      image: "/images/p1.jpg",
+      image: "/images/bosh.png",
       price: 120,
       brand: "Nike",
       rating: 4.5,
       numReviews: 10,
+      countInStock: 5,
       description: "high quality product",
     },
     {
