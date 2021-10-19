@@ -5,7 +5,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-md bg-dark navbar-dark py-3 fixed-top">
         <div className="container">
-          <a href="/#" className="navbar-brand">
+          <a href="/" className="navbar-brand">
             Gal Electric
           </a>
 
@@ -21,18 +21,13 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navmenu">
             <ul className="nav navbar-nav ms-auto">
               <li className="nav-item">
-                <a href="#learn" className="nav-link">
-                  Sign In
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#questions" className="nav-link">
-                  Log In
-                </a>
-              </li>
-              <li className="nav-item">
                 <a href="#instructors" className="nav-link">
                   Cart
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#learn" className="nav-link">
+                  Sign In
                 </a>
               </li>
             </ul>
