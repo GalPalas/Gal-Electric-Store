@@ -1,10 +1,8 @@
 import React from "react";
-import data from "data";
 import Rating from "components/Rating/rating";
 import "./product.css";
 
-const Product = () => {
-  const { products } = data;
+const Product = ({ products }) => {
   return (
     <div className="container p-5 mt-3">
       <div className="row mt-3">
