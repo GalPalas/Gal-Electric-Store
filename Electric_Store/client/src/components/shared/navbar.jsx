@@ -6,6 +6,10 @@ const Navbar = () => {
       <div className="container">
         <a className="navbar-brand " href="/#">
           Gal <span className="text-warning display-5">Electric</span>
+          <i
+            className="fa fa-bolt fa-2x text-warning mx-2"
+            aria-hidden="true"
+          ></i>
         </a>
 
         <button

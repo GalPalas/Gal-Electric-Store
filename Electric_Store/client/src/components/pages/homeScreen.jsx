@@ -28,14 +28,16 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <ShowCase />
-      <Newsletter />
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox>{error}</MessageBox>
       ) : (
-        <Product products={products} />
+        <div>
+          <ShowCase />
+          <Newsletter />
+          <Product products={products} />
+        </div>
       )}
     </div>
   );
