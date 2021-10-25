@@ -1,8 +1,31 @@
-.card {
-  width: 18rem;
-}
-
 .brand-icon {
   width: 70px;
   height: 30px;
+}
+
+@media (min-width: 992px) {
+  section .card-title {
+    font-size: 25px;
+  }
+  section .card-model {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  section h1 {
+    padding: 4rem;
+  }
+  section .card-title {
+    font-size: 20px;
+  }
+  section .card-model {
+    display: block;
+  }
+}
+
+@media (min-width: 400px) {
+  section h1 {
+    padding: 2rem;
+  }
 }
