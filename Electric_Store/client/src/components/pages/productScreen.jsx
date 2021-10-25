@@ -10,7 +10,7 @@ const ProductScreen = (props) => {
 
   if (!product) return <div>Product Not Found</div>;
   return (
-    <div className="container-fluid p-5 mt-4">
+    <div className="container-fluid p-3">
       <Link to="/">Back to result</Link>
 
       <div className="row mt-3">
