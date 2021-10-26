@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { listProducts, productList } from "store/products";
 import Product from "components/Product/product";
 import LoadingBox from "components/shared/loadingBox";
 import MessageBox from "components/shared/messageBox";
@@ -7,24 +8,13 @@ import ShowCase from "components/ShowCase/showCase";
 import Newsletter from "components/Newsletter/newsletter";
 
 const HomeScreen = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const dispatch = useDispatch();
+  const productsList = useSelector(productList());
+  const { loading, error, products } = productsList;
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const { data } = await axios.get("/api/products");
-        setLoading(false);
-        setProducts(data);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+    dispatch(listProducts());
+  }, [dispatch]);
 
   return (
     <div>

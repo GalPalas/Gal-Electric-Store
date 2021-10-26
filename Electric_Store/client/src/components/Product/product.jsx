@@ -3,6 +3,7 @@ import Rating from "components/Rating/rating";
 import "./product.css";
 
 const Product = ({ products }) => {
+  if (products === undefined) return <div>No Products</div>;
   return (
     <section className="bg-white p-2">
       <div className="container-fluid">
