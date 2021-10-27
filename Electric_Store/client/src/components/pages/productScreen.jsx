@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { detailsProduct, getProductDetails } from "store/productDetails";
@@ -8,6 +8,7 @@ import MessageBox from "components/shared/messageBox";
 
 const ProductScreen = (props) => {
   const dispatch = useDispatch();
+  const [qty, setQty] = useState(1);
   const productId = props.match.params.id;
   const productsDetails = useSelector(getProductDetails());
   const { loading, error, product } = productsDetails;
@@ -15,6 +16,10 @@ const ProductScreen = (props) => {
   useEffect(() => {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
+
+  const addToCartHendler = () => {
+    props.history.push(`/cart/${productId}?qty=${qty}`);
+  };
 
   if (!product) return <div>Product Not Found</div>;
   return (
@@ -73,8 +78,35 @@ const ProductScreen = (props) => {
                       </div>
                     </div>
                   </li>
+                  {product.countInStock > 0 && (
+                    <li>
+                      <div className="row">
+                        <div className="d-flex justify-content-between">
+                          <div>Qty</div>
+                          <select
+                            className="form-select w-25 shadow-none"
+                            value={qty}
+                            onChange={(e) => setQty(e.target.value)}
+                            aria-label="Default select example"
+                          >
+                            {[...Array(product.countInStock).keys()].map(
+                              (x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              )
+                            )}
+                          </select>
+                        </div>
+                      </div>
+                    </li>
+                  )}
+
                   <li className="mt-2 ">
-                    <button className="btn btn-primary w-100">
+                    <button
+                      className="btn btn-primary w-100"
+                      onClick={addToCartHendler}
+                    >
                       Add to Cart
                     </button>
                   </li>
