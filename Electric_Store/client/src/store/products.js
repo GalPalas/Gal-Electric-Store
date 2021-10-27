@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
-import { apiCallBegan } from "store/api";
+import { productsListCallBegan } from "store/actions";
 
 const productsList = createSlice({
   name: "productsList",
@@ -10,36 +10,39 @@ const productsList = createSlice({
     error: false,
   },
   reducers: {
-    callRequested: (productsList, action) => {
+    productListRequested: (productsList, action) => {
       productsList.loading = true;
     },
-    callSuccess: (productsList, action) => {
+    productListSuccess: (productsList, action) => {
       productsList.products = action.payload;
       productsList.loading = false;
     },
-    callFailed: (productsList, action) => {
+    productListFailed: (productsList, action) => {
       productsList.error = action.payload;
       productsList.loading = false;
     },
   },
 });
 
-/* Load productsList from API */
+/* Put productsList data in store (State) */
 export const listProducts = () => (dispatch) => {
   return dispatch(
-    apiCallBegan({
-      onStart: callRequested.type,
-      onSuccess: callSuccess.type,
-      onError: callFailed.type,
+    productsListCallBegan({
+      url: "/api/products",
+      onStart: productListRequested.type,
+      onSuccess: productListSuccess.type,
+      onError: productListFailed.type,
     })
   );
 };
 
+/* --------------- Return productsList from store (Selector) ---------------  */
 export const productList = () =>
   createSelector(
     (state) => state.entities.productsList,
     (productsList) => productsList
   );
 
-export const { callRequested, callSuccess, callFailed } = productsList.actions;
+export const { productListRequested, productListSuccess, productListFailed } =
+  productsList.actions;
 export default productsList.reducer;
