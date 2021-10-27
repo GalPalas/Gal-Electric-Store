@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Rating from "components/Rating/rating";
 import "./product.css";
 
@@ -17,15 +18,20 @@ const Product = ({ products }) => {
               className="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6"
             >
               <div className="card">
-                <a href={`/product/${product._id}`}>
+                <Link to={`/product/${product._id}`}>
                   <img
                     src={product.image}
                     className="card-img-top image-fluid w-75"
                     alt="..."
                   />
-                </a>
+                </Link>
                 <div className="card-body">
-                  <h4 className="card-title">{product.name}</h4>
+                  <Link
+                    className="text-decoration-none"
+                    to={`/product/${product._id}`}
+                  >
+                    <h4 className="card-title text-dark ">{product.name}</h4>
+                  </Link>
                   <h5 className="card-model text-secondary">
                     model:{product.model}
                   </h5>
