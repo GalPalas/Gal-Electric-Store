@@ -7,3 +7,4 @@ export const productsListCallBegan = createAction(
 export const productsDetailsCallBegan = createAction(
   "productsDetails/productsDetailsBegan"
 );
+export const cartCallBegan = createAction("cart/cartBegan");
