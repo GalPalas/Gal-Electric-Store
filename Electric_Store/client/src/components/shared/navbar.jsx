@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { numberOfItems } from "store/cart";
+import { getCartItems } from "store/cart";
 
 const Navbar = () => {
-  const cart = useSelector(numberOfItems());
+  const cart = useSelector(getCartItems());
   const { cartItems } = cart;
 
   return (

@@ -1,7 +1,7 @@
 import Navbar from "components/shared/navbar";
-import HomeScreen from "components/pages/homeScreen";
-import CartScreen from "components/pages/cartScreen";
-import ProductScreen from "components/pages/productScreen";
+import HomeScreen from "components/pages/home/homeScreen";
+import CartScreen from "components/pages/cart/cartScreen";
+import ProductScreen from "components/pages/product/productScreen";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
