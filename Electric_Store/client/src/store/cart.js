@@ -22,6 +22,12 @@ const cart = createSlice({
       }
       localStorage.setItem("cartElectricItems", JSON.stringify(cart.cartItems));
     },
+    cartItemRemoved: (cart, action) => {
+      cart.cartItems = cart.cartItems.filter(
+        (item) => item.product !== action.payload
+      );
+      localStorage.setItem("cartElectricItems", JSON.stringify(cart.cartItems));
+    },
   },
 });
 
@@ -35,6 +41,10 @@ export const addItemToCart = (productId, qty) => (dispatch, getState) => {
   );
 };
 
+export const removeItemFromCart = (productId) => (dispatch, getState) => {
+  dispatch(cartItemRemoved(productId));
+};
+
 /* --------------- Return how many items in cart (Selector) ---------------  */
 export const getCartItems = () =>
   createSelector(
@@ -42,5 +52,5 @@ export const getCartItems = () =>
     (cart) => cart
   );
 
-export const { cardItemAdded } = cart.actions;
+const { cardItemAdded, cartItemRemoved } = cart.actions;
 export default cart.reducer;

@@ -35,7 +35,7 @@ const Navbar = () => {
                 className="nav-link text-light position-relative "
               >
                 <i
-                  class="fa fa-shopping-cart fa-2x mx-2"
+                  className="fa fa-shopping-cart fa-2x mx-2"
                   aria-hidden="true"
                 ></i>
                 Cart
@@ -48,7 +48,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link to="/signin" className="nav-link text-light ">
-                <i class="fa fa-user fa-2x mx-2 " aria-hidden="true"></i>
+                <i className="fa fa-user fa-2x mx-2 " aria-hidden="true"></i>
                 Sign In
               </Link>
             </li>
