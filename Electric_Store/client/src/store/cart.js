@@ -36,7 +36,7 @@ export const addItemToCart = (productId, qty) => (dispatch, getState) => {
 };
 
 /* --------------- Return how many items in cart (Selector) ---------------  */
-export const numberOfItems = () =>
+export const getCartItems = () =>
   createSelector(
     (state) => state.entities.cart,
     (cart) => cart
