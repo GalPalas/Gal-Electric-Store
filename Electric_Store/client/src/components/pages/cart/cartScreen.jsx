@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import MessageBox from "components/shared/messageBox";
 import { useDispatch, useSelector } from "react-redux";
-import { addItemToCart, getCartItems } from "store/cart";
+import { addItemToCart, getCartItems, removeItemFromCart } from "store/cart";
 import "./style.css";
 
 const CartScreen = (props) => {
@@ -20,7 +20,9 @@ const CartScreen = (props) => {
     dispatch(addItemToCart(productId, qty));
   }, [dispatch, productId, qty]);
 
-  const removeFromCartHandler = () => {};
+  const removeFromCartHandler = (productId) => {
+    dispatch(removeItemFromCart(productId));
+  };
 
   const checkoutHandler = () => {
     props.history.push("/signin?redirect=shipping");
@@ -31,7 +33,12 @@ const CartScreen = (props) => {
         <div className="col-8">
           <h2>Your cart</h2>
           {cartItems.length === 0 ? (
-            <MessageBox>Your cart is empty</MessageBox>
+            <MessageBox>
+              Your cart is empty{" "}
+              <Link className="text-decoration-none" to="/">
+                Go Shopping
+              </Link>
+            </MessageBox>
           ) : (
             <ul className="list-unstyled">
               {cartItems.map((item) => (
