@@ -21,7 +21,7 @@ const Product = ({ products }) => {
                 <Link to={`/product/${product._id}`}>
                   <img
                     src={product.image}
-                    className="card-img-top image-fluid w-75"
+                    className="card-img-top image-fluid w-75 p-2 text-center"
                     alt="..."
                   />
                 </Link>
