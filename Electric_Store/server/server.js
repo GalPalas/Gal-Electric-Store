@@ -1,10 +1,15 @@
 /* eslint-disable no-undef */
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import userRouter from "./routers/user.js";
 import productRouter from "./routers/product.js";
 
+dotenv.config();
+
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(
   process.env.MONGODB_URL ||
@@ -16,10 +21,6 @@ mongoose.connection.once("open", () => {
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
-
-app.get("/", (req, res) => {
-  res.send("server is ready");
-});
 
 app.use((err, req, res) => {
   res.status(500).send({ message: err.message });
