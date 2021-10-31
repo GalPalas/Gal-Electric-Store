@@ -47,7 +47,7 @@ const ProductScreen = (props) => {
                     numReviews={product.numReviews}
                   ></Rating>
                 </li>
-                <li>Pirce : ${product.price}</li>
+                <li>Pirce : ${product.currentPrice}</li>
                 <li>
                   <p>Description: {product.description}</p>
                 </li>
@@ -60,7 +60,9 @@ const ProductScreen = (props) => {
                     <div className="row">
                       <div className="d-flex justify-content-between">
                         <div>Price</div>
-                        <div className="price fw-bold">${product.price}</div>
+                        <div className="price fw-bold">
+                          ${product.currentPrice}
+                        </div>
                       </div>
                     </div>
                   </li>
