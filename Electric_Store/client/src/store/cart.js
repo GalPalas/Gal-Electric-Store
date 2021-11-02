@@ -8,6 +8,7 @@ const cart = createSlice({
     cartItems: localStorage.getItem("cartElectricItems")
       ? JSON.parse(localStorage.getItem("cartElectricItems"))
       : [],
+    error: false,
   },
   reducers: {
     cardItemAdded: (cart, action) => {
@@ -28,6 +29,9 @@ const cart = createSlice({
       );
       localStorage.setItem("cartElectricItems", JSON.stringify(cart.cartItems));
     },
+    cartItemFailed: (cart, action) => {
+      cart.error = action.payload;
+    },
   },
 });
 
@@ -37,9 +41,13 @@ export const addItemToCart = (productId, qty) => (dispatch, getState) => {
       url: `/api/products/${productId}`,
       qty: qty,
       onSuccess: cardItemAdded.type,
+      onError: cartItemFailed.type,
     })
   );
 };
+
+const { cardItemAdded, cartItemRemoved, cartItemFailed } = cart.actions;
+export default cart.reducer;
 
 export const removeItemFromCart = (productId) => (dispatch, getState) => {
   dispatch(cartItemRemoved(productId));
@@ -51,6 +59,3 @@ export const getCartItems = () =>
     (state) => state.entities.cart,
     (cart) => cart
   );
-
-const { cardItemAdded, cartItemRemoved } = cart.actions;
-export default cart.reducer;

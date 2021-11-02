@@ -7,27 +7,27 @@ const cart =
   async (action) => {
     if (action.type !== cartCallBegan.type) return next(action);
 
-    const { url, qty, onSuccess } = action.payload;
+    const { url, qty, onSuccess, onError } = action.payload;
 
     next(action);
 
     try {
       const { data } = await axios.request({ url });
-      const { name, image, price, countInStock, _id } = data;
+      const { name, image, currentPrice, countInStock, _id } = data;
       if (onSuccess)
         dispatch({
           type: onSuccess,
           payload: {
             name,
             image,
-            price,
+            currentPrice,
             countInStock,
             product: _id,
             qty,
           },
         });
-    } catch (err) {
-      console.log(err.message);
+    } catch (error) {
+      if (onError) dispatch({ type: onError, payload: error.message });
     }
   };
 

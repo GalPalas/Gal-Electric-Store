@@ -29,8 +29,8 @@ userRouter.post(
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });
+        return;
       }
-      return;
     }
     res.status(401).send({ message: "Invalid email or password" });
   })
