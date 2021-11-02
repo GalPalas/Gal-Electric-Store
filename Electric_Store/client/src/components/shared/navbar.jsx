@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCartItems } from "store/cart";
+import { getUserInfo, signout } from "store/userSignIn";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const cart = useSelector(getCartItems());
   const { cartItems } = cart;
+
+  const userSignIn = useSelector(getUserInfo());
+  const { user } = userSignIn;
+
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-3">
@@ -47,10 +56,39 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/signin" className="nav-link text-light ">
-                <i className="fa fa-user fa-2x mx-2 " aria-hidden="true"></i>
-                Sign In
-              </Link>
+              {user ? (
+                <div className="dropdown ">
+                  <Link
+                    className="btn dropdown-toggle text-light"
+                    to="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i className="fa fa-user fa-2x mx-2 "></i>
+                    {user.name}
+                  </Link>
+
+                  <ul
+                    className="dropdown-menu bg-light"
+                    aria-labelledby="dropdownMenuLink"
+                  >
+                    <Link
+                      className="dropdown-item"
+                      to="#signout"
+                      onClick={signoutHandler}
+                    >
+                      Sign Out
+                    </Link>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/signin" className="nav-link text-light ">
+                  <i className="fa fa-user fa-2x mx-2 "></i>
+                  SignIn
+                </Link>
+              )}
             </li>
           </ul>
         </div>
