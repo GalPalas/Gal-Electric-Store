@@ -26,6 +26,9 @@ const userSignIn = createSlice({
     userSignInSignOut: (userSignIn, action) => {
       userSignIn.user = null;
     },
+    userRegisterRequest: (userSignIn, action) => {
+      userSignIn.loading = true;
+    },
   },
 });
 
