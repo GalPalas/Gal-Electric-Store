@@ -1,9 +1,9 @@
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserInfo, signIn } from "store/userSignIn";
 import LoadingBox from "components/shared/loadingBox";
 import MessageBox from "components/shared/messageBox";
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getUserInfo, signIn } from "store/userSignIn";
 
 const SignInScreen = (props) => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const SignInScreen = (props) => {
   }, [user, props.history, redirect]);
   return (
     <div className="container p-5 h-100">
-      <div className="row justify-content-center ">
+      <div className="row justify-content-center">
         <div className="col-8">
           <h2 className="mb-3">Sign In</h2>
           {loading && <LoadingBox></LoadingBox>}

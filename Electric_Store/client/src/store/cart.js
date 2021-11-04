@@ -8,6 +8,10 @@ const cart = createSlice({
     cartItems: localStorage.getItem("cartElectricItems")
       ? JSON.parse(localStorage.getItem("cartElectricItems"))
       : [],
+
+    shippingAddress: localStorage.getItem("shippingAddress")
+      ? JSON.parse(localStorage.getItem("shippingAddress"))
+      : {},
     error: false,
   },
   reducers: {
@@ -32,8 +36,17 @@ const cart = createSlice({
     cartItemFailed: (cart, action) => {
       cart.error = action.payload;
     },
+    cartSaveShippingAddress: (cart, action) => {},
   },
 });
+
+const {
+  cardItemAdded,
+  cartItemRemoved,
+  cartItemFailed,
+  cartSaveShippingAddress,
+} = cart.actions;
+export default cart.reducer;
 
 export const addItemToCart = (productId, qty) => (dispatch, getState) => {
   return dispatch(
@@ -46,11 +59,13 @@ export const addItemToCart = (productId, qty) => (dispatch, getState) => {
   );
 };
 
-const { cardItemAdded, cartItemRemoved, cartItemFailed } = cart.actions;
-export default cart.reducer;
-
 export const removeItemFromCart = (productId) => (dispatch, getState) => {
   dispatch(cartItemRemoved(productId));
+};
+
+export const saveShippingAddress = (data) => (dispatch) => {
+  dispatch(cartSaveShippingAddress(data));
+  localStorage.setItem("shippingAddress", JSON.stringify(data));
 };
 
 /* --------------- Return how many items in cart (Selector) ---------------  */
