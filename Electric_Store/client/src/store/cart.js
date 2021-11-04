@@ -12,6 +12,7 @@ const cart = createSlice({
     shippingAddress: localStorage.getItem("shippingAddress")
       ? JSON.parse(localStorage.getItem("shippingAddress"))
       : {},
+    paymentMethod: "PayPal",
     error: false,
   },
   reducers: {
@@ -36,7 +37,12 @@ const cart = createSlice({
     cartItemFailed: (cart, action) => {
       cart.error = action.payload;
     },
-    cartSaveShippingAddress: (cart, action) => {},
+    cartSaveShippingAddress: (cart, action) => {
+      cart.shippingAddress = action.payload;
+    },
+    cartSavePaymentMethod: (cart, action) => {
+      cart.paymentMethod = action.payload;
+    },
   },
 });
 
@@ -45,6 +51,7 @@ const {
   cartItemRemoved,
   cartItemFailed,
   cartSaveShippingAddress,
+  cartSavePaymentMethod,
 } = cart.actions;
 export default cart.reducer;
 
@@ -66,6 +73,10 @@ export const removeItemFromCart = (productId) => (dispatch, getState) => {
 export const saveShippingAddress = (data) => (dispatch) => {
   dispatch(cartSaveShippingAddress(data));
   localStorage.setItem("shippingAddress", JSON.stringify(data));
+};
+
+export const savePaymentMethod = (paymentMethod) => (dispatch) => {
+  dispatch(cartSavePaymentMethod(paymentMethod));
 };
 
 /* --------------- Return how many items in cart (Selector) ---------------  */
