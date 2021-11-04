@@ -1,0 +1,12 @@
+.progressbar > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  padding: 1rem;
+  color: #c0c0c0;
+  flex: 1;
+  font-weight: bold;
+}
+
+.progressbar > div.active {
+  border-top: 0.3rem #ffc107 solid;
+  color: #ffc107;
+}
