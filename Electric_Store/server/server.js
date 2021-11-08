@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routers/user.js";
 import productRouter from "./routers/product.js";
+import orderRouter from "./routers/order.js";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ mongoose.connection.once("open", () => {
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/orders", orderRouter);
 
 app.use((err, req, res) => {
   res.status(500).send({ message: err.message });
