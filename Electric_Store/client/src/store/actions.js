@@ -13,3 +13,7 @@ export const userSignInCallBegan = createAction("userSignIn/userSignInBegan");
 export const userRegisterCallBegan = createAction(
   "userRegister/userRegisterBegan"
 );
+
+export const orderSummaryCallBegan = createAction(
+  "orderSummary/orderSummaryBegan"
+);

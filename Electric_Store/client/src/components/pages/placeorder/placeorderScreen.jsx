@@ -1,16 +1,24 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getCartItems } from "store/cart";
+import { createOrder, orderDetails, orderSummaryReset } from "store/order";
 import { Link } from "react-router-dom";
 import CheckoutSteps from "components/shared/checkoutSteps";
+import LoadingBox from "components/shared/loadingBox";
+import MessageBox from "components/shared/messageBox";
 
 const PlaceorderScreen = (props) => {
+  const dispatch = useDispatch();
+
   const cart = useSelector(getCartItems());
   const { shippingAddress, cartItems } = cart;
 
   if (!cart.paymentMethod) {
     props.history.push("/payment");
   }
+
+  const orderCreate = useSelector(orderDetails());
+  const { loading, success, error, order } = orderCreate;
 
   const toPrice = (num) => Number(num.toFixed(2));
   const itemsPrice = toPrice(
@@ -22,8 +30,24 @@ const PlaceorderScreen = (props) => {
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
 
   const placeOrderHandler = () => {
-    // TODO: dispatch place order action
+    dispatch(
+      createOrder({
+        ...cart,
+        itemsPrice,
+        shippingPrice,
+        taxPrice,
+        totalPrice,
+        orderItems: cartItems,
+      })
+    );
   };
+
+  useEffect(() => {
+    if (success) {
+      props.history.push(`/order/${order.order._id}`);
+      dispatch(orderSummaryReset());
+    }
+  }, [dispatch, order, props.history, success]);
 
   return (
     <div>
@@ -125,6 +149,8 @@ const PlaceorderScreen = (props) => {
                   >
                     Place Order
                   </button>
+                  {loading && <LoadingBox></LoadingBox>}
+                  {error && <MessageBox>{error}</MessageBox>}
                 </div>
               </div>
             </div>

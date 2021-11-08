@@ -43,6 +43,9 @@ const cart = createSlice({
     cartSavePaymentMethod: (cart, action) => {
       cart.paymentMethod = action.payload;
     },
+    cartEmpty: (cart, acttion) => {
+      cart.cartItems = [];
+    },
   },
 });
 
@@ -52,6 +55,7 @@ const {
   cartItemFailed,
   cartSaveShippingAddress,
   cartSavePaymentMethod,
+  cartEmpty,
 } = cart.actions;
 export default cart.reducer;
 
@@ -77,6 +81,10 @@ export const saveShippingAddress = (data) => (dispatch) => {
 
 export const savePaymentMethod = (paymentMethod) => (dispatch) => {
   dispatch(cartSavePaymentMethod(paymentMethod));
+};
+
+export const removeAllItemsFromCart = () => (dispatch) => {
+  dispatch(cartEmpty());
 };
 
 /* --------------- Return how many items in cart (Selector) ---------------  */

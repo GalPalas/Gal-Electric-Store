@@ -1,6 +1,7 @@
 import Navbar from "components/shared/navbar";
 import HomeScreen from "components/pages/home/homeScreen";
 import CartScreen from "components/pages/cart/cartScreen";
+import OrderScreen from "components/pages/order/orderScreen";
 import SignInScreen from "components/pages/signin/signInScreen";
 import PaymentScreen from "components/pages/payment/paymentScreen";
 import ProductScreen from "components/pages/product/productScreen";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
           <Route path="/payment" component={PaymentScreen}></Route>
           <Route path="/placeorder" component={PlaceorderScreen}></Route>
+          <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/" component={HomeScreen}></Route>
         </Switch>
       </div>
