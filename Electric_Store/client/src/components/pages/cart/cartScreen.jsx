@@ -17,7 +17,9 @@ const CartScreen = (props) => {
   const { cartItems } = cart;
 
   useEffect(() => {
-    dispatch(addItemToCart(productId, qty));
+    if (productId) {
+      dispatch(addItemToCart(productId, qty));
+    }
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (productId) => {
