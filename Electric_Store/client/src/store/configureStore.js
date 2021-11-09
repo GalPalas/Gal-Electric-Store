@@ -4,6 +4,7 @@ import cart from "store/middleware/cart";
 import products from "store/middleware/products";
 import orderSummary from "store/middleware/order";
 import userSignIn from "store/middleware/userSignIn";
+import orderDetails from "store/middleware/orderDetails";
 import userRegister from "store/middleware/userRegister";
 import productsDetails from "store/middleware/productDetails";
 
@@ -18,6 +19,7 @@ export default function configureAppStore() {
       userSignIn,
       userRegister,
       orderSummary,
+      orderDetails,
     ],
   });
 }
