@@ -17,3 +17,7 @@ export const userRegisterCallBegan = createAction(
 export const orderSummaryCallBegan = createAction(
   "orderSummary/orderSummaryBegan"
 );
+
+export const orderDetailsCallBegan = createAction(
+  "orderDetails/orderDetailsBegan"
+);
