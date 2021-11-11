@@ -2,6 +2,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+// import cors from "cors";
 import userRouter from "./routers/user.js";
 import productRouter from "./routers/product.js";
 import orderRouter from "./routers/order.js";
@@ -9,6 +10,13 @@ import orderRouter from "./routers/order.js";
 dotenv.config();
 
 const app = express();
+
+// app.use(
+//   cors({
+//     origin: "https://c.sandbox.paypal.com",
+//   })
+// );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,6 +31,9 @@ mongoose.connection.once("open", () => {
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/orders", orderRouter);
+app.get("/api/config/paypal", (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || "sb");
+});
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {

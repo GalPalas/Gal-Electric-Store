@@ -5,7 +5,7 @@ import { orderDetailsCallBegan } from "store/actions";
 const orderDetails = createSlice({
   name: "orderDetails",
   initialState: {
-    order: {},
+    // order: {},
     loading: true,
     error: false,
   },
