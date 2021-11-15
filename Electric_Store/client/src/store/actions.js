@@ -21,3 +21,5 @@ export const orderSummaryCallBegan = createAction(
 export const orderDetailsCallBegan = createAction(
   "orderDetails/orderDetailsBegan"
 );
+
+export const orderPayCallBegan = createAction("orderPay/orderPayBegan");

@@ -2,7 +2,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-// import cors from "cors";
+import cors from "cors";
 import userRouter from "./routers/user.js";
 import productRouter from "./routers/product.js";
 import orderRouter from "./routers/order.js";
@@ -11,11 +11,11 @@ dotenv.config();
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: "https://c.sandbox.paypal.com",
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://c.sandbox.paypal.com",
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

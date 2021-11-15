@@ -2,6 +2,7 @@ import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import reducer from "store/reducer";
 import cart from "store/middleware/cart";
 import products from "store/middleware/products";
+import orderPay from "store/middleware/orderPay";
 import orderSummary from "store/middleware/order";
 import userSignIn from "store/middleware/userSignIn";
 import orderDetails from "store/middleware/orderDetails";
@@ -20,6 +21,7 @@ export default function configureAppStore() {
       userRegister,
       orderSummary,
       orderDetails,
+      orderPay,
     ],
   });
 }
