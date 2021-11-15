@@ -5,6 +5,7 @@ import productDetailsReducer from "store/productDetails";
 import userSignInReducer from "store/userSignIn";
 import userRegisterReducer from "store/userRegister";
 import orderSummaryReducer from "store/order";
+import orderPayReducer from "store/orderPay";
 import orderDetailsReducer from "store/orderDetails";
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
   userRegister: userRegisterReducer,
   orderSummary: orderSummaryReducer,
   orderDetails: orderDetailsReducer,
+  orderPay: orderPayReducer,
 });
