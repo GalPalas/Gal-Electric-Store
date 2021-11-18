@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { paginate } from "util/paginate";
 import Rating from "components/Rating/rating";
+import Pagination from "components/shared/pagination";
 import "./product.css";
 
 const Product = ({ products }) => {
+  const [pageSize] = useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
+
   if (!products) return <div>ProductS Not Found</div>;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const allProducts = paginate(products, currentPage, pageSize);
+
   return (
     <section className="bg-white p-2">
       <div className="container-fluid">
@@ -12,7 +24,7 @@ const Product = ({ products }) => {
           Electrical Products | Home Products | Cellular and Computers
         </h1>
         <div className="row gy-3">
-          {products.map((product) => (
+          {allProducts.map((product) => (
             <div
               key={product._id}
               className="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6"
@@ -57,6 +69,12 @@ const Product = ({ products }) => {
             </div>
           ))}
         </div>
+        <Pagination
+          itemCount={products.length}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
       </div>
     </section>
   );
