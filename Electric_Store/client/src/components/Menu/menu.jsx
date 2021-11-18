@@ -1,70 +1,71 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 import MenuButton from "components/Menu/menuButton";
 
 const Menu = () => {
   const [HomeAndTheater] = useState([
-    "TVs",
-    "Audio",
-    "Video",
-    "TV mounts and furniture",
-    "TV and home theater accessories",
+    { id: nanoid(), category: "TVs" },
+    { id: nanoid(), category: "Audio" },
+    { id: nanoid(), category: "Video" },
+    { id: nanoid(), category: "TV mounts and furniture" },
+    { id: nanoid(), category: "TV and home theater accessories" },
   ]);
 
   const [RefrigeratorsAndFreezers] = useState([
-    "Bottom freezer refrigerator",
-    "Top freezer refrigerator",
-    "Refrigerator door by door",
-    "3-door refrigerator",
-    "4-door refrigerator",
-    "5-door refrigerator",
-    "Integral refrigerator",
-    "Office refrigerator",
-    "Wine refrigerators",
-    "Freezers",
+    { id: nanoid(), category: "Bottom freezer refrigerator" },
+    { id: nanoid(), category: "Top freezer refrigerator" },
+    { id: nanoid(), category: "Refrigerator door by door" },
+    { id: nanoid(), category: "3-door refrigerator" },
+    { id: nanoid(), category: "4-door refrigerator" },
+    { id: nanoid(), category: "5-door refrigerator" },
+    { id: nanoid(), category: "Integral refrigerator" },
+    { id: nanoid(), category: "Office refrigerator" },
+    { id: nanoid(), category: "Wine refrigerators" },
+    { id: nanoid(), category: "Freezers" },
   ]);
 
   const [WashersAndDryers] = useState([
-    "Front washing machine",
-    "Top opening washing machine",
-    "Washing machine with dryer",
-    "Tumble dryers",
+    { id: nanoid(), category: "Front washing machine" },
+    { id: nanoid(), category: "Top opening washing machine" },
+    { id: nanoid(), category: "Washing machine with dryer" },
+    { id: nanoid(), category: "Tumble dryers" },
   ]);
 
   const [Dishwashers] = useState([
-    "Wide dishwasher",
-    " Narrow dishwasher",
-    "Refrigerator door by door",
-    "Semi-integral dishwasher",
-    "Fully integrated dishwasher",
-    "Dishwasher on the counter",
+    { id: nanoid(), category: "Wide dishwasher" },
+    { id: nanoid(), category: "Narrow dishwasher" },
+    { id: nanoid(), category: "Refrigerator door by door" },
+    { id: nanoid(), category: "Semi-integral dishwasher" },
+    { id: nanoid(), category: "Fully integrated dishwasher" },
+    { id: nanoid(), category: "Dishwasher on the counter" },
   ]);
 
   const [StovesAndCookers] = useState([
-    "Built-in ovens",
-    "Integrated ovens",
-    "Microwave integrated ovens",
-    "Induction cooker",
-    "Electric / ceramic hob",
-    "Gas stoves",
-    "Domino stove",
-    "Stove on the counter",
-    "Steam collectors",
+    { id: nanoid(), category: "Built-in ovens" },
+    { id: nanoid(), category: "Microwave integrated ovens" },
+    { id: nanoid(), category: "Induction cooker" },
+    { id: nanoid(), category: "Electric / ceramic hob" },
+    { id: nanoid(), category: "Gas stoves" },
+    { id: nanoid(), category: "Domino stove" },
+    { id: nanoid(), category: "Stove on the counter" },
+    { id: nanoid(), category: "Wide dishwasher" },
+    { id: nanoid(), category: "Steam collectors" },
   ]);
 
   const [AirConditioners] = useState([
-    "Surface air conditioner",
-    "Mini central air conditioner",
-    "Fans | Coolers | Air filters",
-    "Portable air conditioner",
-    "Radiators",
-    "Heater",
-    "Heat dissipators",
+    { id: nanoid(), category: "Surface air conditioner" },
+    { id: nanoid(), category: "Mini central air conditioner" },
+    { id: nanoid(), category: "Fans | Coolers | Air filters" },
+    { id: nanoid(), category: "Portable air conditioner" },
+    { id: nanoid(), category: "Radiators" },
+    { id: nanoid(), category: "Heater" },
+    { id: nanoid(), category: "Heat dissipators" },
   ]);
 
   const [CellularAndTechnology] = useState([
-    "Smartphone and cellphone",
-    "Tablets",
-    "mobile computers",
+    { id: nanoid(), category: "Smartphone and cellphone" },
+    { id: nanoid(), category: "Tablets" },
+    { id: nanoid(), category: "mobile computers" },
   ]);
 
   return (
