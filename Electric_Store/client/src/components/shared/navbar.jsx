@@ -36,7 +36,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navmenu">
+        <div className="collapse navbar-collapse align-center" id="navmenu">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link
@@ -59,7 +59,7 @@ const Navbar = () => {
               {user ? (
                 <div className="dropdown ">
                   <Link
-                    className="btn dropdown-toggle text-light"
+                    className="btn dropdown-toggle text-light p-0 mt-1"
                     to="#"
                     role="button"
                     id="dropdownMenuLink"
@@ -75,7 +75,7 @@ const Navbar = () => {
                     aria-labelledby="dropdownMenuLink"
                   >
                     <Link
-                      className="dropdown-item"
+                      className="dropdown-item p-0"
                       to="#signout"
                       onClick={signoutHandler}
                     >
