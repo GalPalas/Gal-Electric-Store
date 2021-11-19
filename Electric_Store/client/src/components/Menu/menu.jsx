@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import MenuButton from "components/Menu/menuButton";
+import "./menu.css";
 
 const Menu = () => {
   const [HomeAndTheater] = useState([
@@ -69,7 +70,7 @@ const Menu = () => {
   ]);
 
   return (
-    <div className="container-fluid bg-light py-2">
+    <div className="container-fluid bg-light py-2 screen">
       <div className="row text-center align-items-center">
         <div className="col p-0">
           <MenuButton title={"TV & Home Theater"} products={HomeAndTheater} />

@@ -6,6 +6,7 @@ import LoadingBox from "components/shared/loadingBox";
 import MessageBox from "components/shared/messageBox";
 import ShowCase from "components/ShowCase/showCase";
 import Newsletter from "components/Newsletter/newsletter";
+import LeadEvents from "components/LeadEvents/leadEvents";
 import Menu from "components/Menu/menu";
 
 const HomeScreen = () => {
@@ -29,6 +30,7 @@ const HomeScreen = () => {
           <ShowCase />
           <Newsletter />
           <Product products={products} />
+          <LeadEvents />
         </div>
       )}
     </div>
