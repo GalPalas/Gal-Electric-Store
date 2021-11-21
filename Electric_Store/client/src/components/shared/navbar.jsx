@@ -57,7 +57,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               {user ? (
-                <div className="dropdown ">
+                <div className="dropdown">
                   <Link
                     className="btn dropdown-toggle text-light p-0 mt-1"
                     to="#"
