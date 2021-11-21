@@ -7,6 +7,7 @@ import MessageBox from "components/shared/messageBox";
 import ShowCase from "components/ShowCase/showCase";
 import Newsletter from "components/Newsletter/newsletter";
 import LeadEvents from "components/LeadEvents/leadEvents";
+import Delivery from "components/Delivery/delivery";
 import Footer from "components/footer/footer";
 import Menu from "components/Menu/menu";
 
@@ -32,6 +33,7 @@ const HomeScreen = () => {
           <Newsletter />
           <Product products={products} />
           <LeadEvents />
+          <Delivery />
           <Footer />
         </div>
       )}
