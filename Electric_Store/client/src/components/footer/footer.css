@@ -9,3 +9,7 @@
 .fa-instagram {
   color: #e4405f;
 }
+
+.container .links a:hover {
+  border-bottom: 1px solid white;
+}
