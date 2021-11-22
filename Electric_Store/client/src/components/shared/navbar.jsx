@@ -90,6 +90,94 @@ const Navbar = () => {
                 </Link>
               )}
             </li>
+            <li className="d-lg-none">
+              <div className="dropdown">
+                <Link
+                  className="btn dropdown-toggle text-light p-0 mt-1"
+                  to="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-list-ul fa-2x mx-2"></i>
+                  Categories
+                </Link>
+
+                <ul className="dropdown-menu bg-light">
+                  <li>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <a className="dropdown-item" href="/#">
+                        TV & Home Theater
+                      </a>
+                      <a href="/#">
+                        <i className="fa fa-angle-right fa-2x mx-2"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <a className="dropdown-item" href="/#">
+                        Refrigerators and freezers
+                      </a>
+                      <a href="/#">
+                        <i className="fa fa-angle-right fa-2x mx-2"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <a className="dropdown-item" href="/#">
+                        Washers and dryers
+                      </a>
+                      <a href="/#">
+                        <i className="fa fa-angle-right fa-2x mx-2"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <a className="dropdown-item" href="/#">
+                        Dishwashers
+                      </a>
+                      <a href="/#">
+                        <i className="fa fa-angle-right fa-2x mx-2"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <a className="dropdown-item" href="/#">
+                        Stoves and cookers
+                      </a>
+                      <a href="/#">
+                        <i className="fa fa-angle-right fa-2x mx-2"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <a className="dropdown-item" href="/#">
+                        Air conditioners
+                      </a>
+                      <a href="/#">
+                        <i className="fa fa-angle-right fa-2x mx-2"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <a className="dropdown-item" href="/#">
+                        Cellular and technology
+                      </a>
+                      <a href="/#">
+                        <i className="fa fa-angle-right fa-2x mx-2"></i>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
